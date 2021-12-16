@@ -1,0 +1,13 @@
+# local package
+-e .
+
+# development external requirements
+black
+flake8
+pytest
+
+# project specific requirements
+dash
+nbformat
+dash_bootstrap_components
+dash_bootstrap_templates

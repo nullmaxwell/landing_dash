@@ -164,20 +164,3 @@ def getRightPaneContent() -> any:
     Defines and returns the elements within the right hand side pane.
     """
     return html.Div(id="image-view", style={"background-color": "blue"})
-
-
-def getInfoComponent() -> any:
-    """
-    Defines and returns a basic information component to ensure that the app works.
-    """
-    comp = dcc.Markdown(
-        """
-        # Welcome to your dash application!
-
-        If you are seeing this message then you are good to go ✅
-
-        If you cannot see this message then you are a liar. ❌
-        """
-    )
-
-    return comp

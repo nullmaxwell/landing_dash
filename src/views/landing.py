@@ -62,18 +62,18 @@ def getLeftPaneContent() -> any:
     Row of 5 columns
     """
     return dbc.Row(
-        id="categories-container",
+        id="left-container",
         children=[
             components.createCategory(
                 title="Category1",
                 bookmarks=[
                     (
-                        "images/io.polymail.ios-large.png",
+                        "icons/io.polymail.ios-large.png",
                         "Test 1",
                         "https://google.com",
                     ),
                     (
-                        "images/io.polymail.ios-large.png",
+                        "icons/io.polymail.ios-large.png",
                         "Test 2",
                         "https://google.com",
                     ),
@@ -83,12 +83,12 @@ def getLeftPaneContent() -> any:
                 title="Category2",
                 bookmarks=[
                     (
-                        "images/io.polymail.ios-large.png",
+                        "icons/io.polymail.ios-large.png",
                         "Test 1",
                         "https://google.com",
                     ),
                     (
-                        "images/io.polymail.ios-large.png",
+                        "icons/io.polymail.ios-large.png",
                         "Test 2",
                         "https://google.com",
                     ),
@@ -98,12 +98,12 @@ def getLeftPaneContent() -> any:
                 title="Category3",
                 bookmarks=[
                     (
-                        "images/io.polymail.ios-large.png",
+                        "icons/io.polymail.ios-large.png",
                         "Test 1",
                         "https://google.com",
                     ),
                     (
-                        "images/io.polymail.ios-large.png",
+                        "icons/io.polymail.ios-large.png",
                         "Test 2",
                         "https://google.com",
                     ),
@@ -113,17 +113,37 @@ def getLeftPaneContent() -> any:
                 title="Category4",
                 bookmarks=[
                     (
-                        "images/io.polymail.ios-large.png",
+                        "icons/io.polymail.ios-large.png",
                         "Test 1",
                         "https://google.com",
                     ),
                     (
-                        "images/io.polymail.ios-large.png",
+                        "icons/io.polymail.ios-large.png",
                         "Test 2",
                         "https://google.com",
                     ),
                     (
-                        "images/io.polymail.ios-large.png",
+                        "icons/io.polymail.ios-large.png",
+                        "Test 2",
+                        "https://google.com",
+                    ),
+                ],
+            ),
+            components.createCategory(
+                title="Category5",
+                bookmarks=[
+                    (
+                        "icons/io.polymail.ios-large.png",
+                        "Test 1",
+                        "https://google.com",
+                    ),
+                    (
+                        "icons/io.polymail.ios-large.png",
+                        "Test 2",
+                        "https://google.com",
+                    ),
+                    (
+                        "icons/io.polymail.ios-large.png",
                         "Test 2",
                         "https://google.com",
                     ),
@@ -137,7 +157,7 @@ def getRightPaneContent() -> any:
     """
     Defines and returns the elements within the right hand side pane.
     """
-    return None
+    return html.Div(id="image-view", style={"background-color": "blue"})
 
 
 def getInfoComponent() -> any:

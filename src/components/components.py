@@ -36,7 +36,7 @@ def createCategory(title: str, bookmarks: list) -> any:
     )
 
 
-def createBookmarks(bookmarks) -> any:
+def createBookmarks(bookmarks: list) -> any:
     """
     Generates a ListGroup of links with their respective images.
 

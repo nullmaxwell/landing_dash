@@ -46,6 +46,7 @@ def getInfoBarContent() -> any:
     Time
     Sunrise
     Sunset
+    Moonphase
     """
     return None
 

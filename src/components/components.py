@@ -21,7 +21,7 @@ def createCategory(title: str, bookmarks: list) -> any:
     return dbc.Col(
         id=title,
         children=[
-            html.H3(
+            html.P(
                 title,
                 id=title + "-title",
                 className="d-flex justify-content-center",
@@ -63,21 +63,23 @@ def createBookmarks(bookmarks) -> any:
                                 html.Img(
                                     id=name + "-logo",
                                     src=app.get_asset_url(image_path),
-                                    style={"height": "50px"},
+                                    style={"height": "35px"},
                                 ),
                                 className="d-flex justify-content-center",
-                                width=6,
+                                width=4,
                             ),
                             dbc.Col(
                                 name,
                                 id=name + "title",
                                 className="d-flex justify-content-center",
-                                width=6,
+                                width=8,
+                                style={"padding-top": "6%"},
                             ),
                         ]
                     )
                 ],
                 href=url,
+                className="border-0 d-flex justify-content-center align-middle",
             )
         )
         pass

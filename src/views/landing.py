@@ -30,8 +30,14 @@ def getMainPanel() -> any:
         id="content",
         children=[
             dbc.Col(id="info-bar", children=[], width=12),
-            dbc.Col(id="left-pane", children=[getLeftPaneContent()], width=10),
-            dbc.Col(id="image-pane", children=[], width=2),
+            dbc.Row(
+                id="undetermined",
+                children=[
+                    dbc.Col(id="left-pane", children=[getLeftPaneContent()], width=10),
+                    dbc.Col(id="right-pane", children=[getRightPaneContent()], width=2),
+                ],
+                className="d-flex justify-content-center",
+            ),
         ],
     )
 

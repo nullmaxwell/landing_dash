@@ -85,3 +85,14 @@ def createBookmarks(bookmarks: list) -> any:
         pass
 
     return group_items
+
+
+def getCurrentTime() -> str:
+    """
+    Simple datetime wrapper that gets the current time and
+    returns it as a formatted string.
+
+    # Returns:
+    "HH:MM"
+    """
+    return dt.now().strftime("%H:%M")

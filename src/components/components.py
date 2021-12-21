@@ -156,3 +156,81 @@ def getMoonPhase(utc: int) -> str:
     for phase in phases:
         if mod_val >= phase[1] and mod_val <= phase[2]:
             return phase[0]
+
+
+def getSunriseSunsetTime(latitude: float, longitude: float, utc: int) -> any:
+    """
+    Calculates approximately what time the sun rises and sets
+    based on the global LOCATION tuple.
+
+    ## Variable Name Explanations
+    gamma = fractional_year
+    doy = numerical day of the year (ex: 182)
+    eqtime = equation of time (in minutes)
+    decl = solar declination angle
+    ha = hour angle
+    z_angle = zenith angle
+
+
+    calculation source: https://gml.noaa.gov/grad/solcalc/solareqns.PDF
+    """
+    sunrise = None
+    snoon = None
+    sunset = None
+    z_angle = 90.833  # Set specifically for the correction of atmospheric refraction
+    current_time = dt.now()
+
+    # Converting degree entries to radians
+    longitude = radians(longitude)
+    latitude = radians(latitude)
+
+    doy = current_time.timetuple().tm_yday
+
+    gamma = radians(((2 * pi) / 365) * (doy - 1 + ((current_time.hour - 12) / 24)))
+
+    # Calculating Equation of time in minutes
+    eqtime = 229.18 * (
+        0.000075
+        + 0.001868 * cos(gamma)
+        - 0.032077 * sin(gamma)
+        - 0.014615 * cos(2 * gamma)
+        - 0.040849 * sin(2 * gamma)
+    )
+
+    # Calculating solar declination angle
+    decl = (
+        0.006918
+        - 0.39912 * cos(gamma)
+        + 0.070257 * sin(gamma)
+        - 0.006758 * cos(2 * gamma)
+        + 0.000907 * sin(2 * gamma)
+        - 0.002697 * cos(3 * gamma)
+        + 0.00148 * sin(3 * gamma)
+    )
+
+    # # Calculating time offset in minutes
+    # time_offset = eqtime + 4 * longitude - 60 * utc
+
+    # tst = (
+    #     current_time.hour * 60
+    #     + current_time.minute
+    #     + current_time.second / 60
+    #     + time_offset
+    # )
+
+    # # Calculating the solar hour angle
+    # ha = (tst / 4) - 180
+
+    sunrise_ha = acos(
+        (((cos(z_angle)) / (cos(latitude) * cos(decl))) - (tan(latitude) * tan(decl)))
+    )
+
+    sunset_ha = -1 * acos(
+        (((cos(z_angle)) / (cos(latitude) * cos(decl))) - (tan(latitude) * tan(decl)))
+    )
+
+    sunrise = 720 - 4 * (longitude + sunrise_ha) - eqtime
+    snoon = 720 - 4 * longitude - eqtime
+    sunset = 720 - 4 * (longitude + sunset_ha) - eqtime
+
+    return sunrise, snoon, sunset

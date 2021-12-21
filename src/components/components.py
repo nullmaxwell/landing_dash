@@ -79,9 +79,10 @@ def createBookmarks(bookmarks: list) -> any:
                                 id=name + "title",
                                 className="d-flex justify-content-center",
                                 width=8,
-                                style={"padding-top": "6%"},
+                                style={"padding-top": "9%"},
                             ),
-                        ]
+                        ],
+                        className="gx-1",
                     )
                 ],
                 href=url,

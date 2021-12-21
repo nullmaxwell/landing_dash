@@ -125,3 +125,34 @@ def getDynamicGreeting() -> str:
         relative_time = "evening"
 
     return "Good " + relative_time + " friend, drink more water!"
+
+
+def getMoonPhase(utc: int) -> str:
+    """
+    Estimates the current moon phase based on today's date.
+
+    lunar_day indicates the duration of days of a lunar cycle.
+    """
+    now = dt.now()
+    lunar_day = 29.53058770576
+    y2k_new_moon = dt(year=2000, month=1, day=6, hour=(18 + utc), minute=14)
+
+    seconds_delta = (now - y2k_new_moon).total_seconds()
+
+    mod_val = seconds_delta % lunar_day
+
+    phases = [
+        ("New", 0, 1),
+        ("Waxing Crescent", 1, 6.38264692644),
+        ("First Quarter", 6.38264692644, 8.38264692644),
+        ("Waxing Gibbous", 8.38264692644, 13.76529385288),
+        ("Full", 13.76529385288, 15.76529385288),
+        ("Waning Gibbous", 15.76529385288, 21.14794077932),
+        ("Last Quarter", 21.14794077932, 23.14794077932),
+        ("Waning Crescent", 23.14794077932, 28.53058770576),
+        ("New", 28.53058770576, 29.53058770576),
+    ]
+
+    for phase in phases:
+        if mod_val >= phase[1] and mod_val <= phase[2]:
+            return phase[0]

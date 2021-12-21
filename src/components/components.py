@@ -5,6 +5,12 @@ import dash_bootstrap_components as dbc
 # Application imports
 from app import app
 
+# Method imports
+from math import radians, pi, cos, sin, acos, tan
+from datetime import datetime as dt
+
+# ---------------------------------------------------------------------------------------
+
 
 def createCategory(title: str, bookmarks: list) -> any:
     """

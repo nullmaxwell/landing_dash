@@ -107,3 +107,21 @@ def getCurrentDate() -> str:
     "DD MONTH YEAR"
     """
     return dt.now().strftime("%d %B %Y")
+
+
+def getDynamicGreeting() -> str:
+    """
+    Determines greeting text string based on the current time.
+    """
+
+    time = dt.now()
+    relative_time = None
+
+    if time.hour < 12:
+        relative_time = "morning"
+    elif time.hour >= 12 and time.hour < 16:
+        relative_time = "afternoon"
+    else:
+        relative_time = "evening"
+
+    return "Good " + relative_time + " friend, drink more water!"

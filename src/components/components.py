@@ -96,3 +96,14 @@ def getCurrentTime() -> str:
     "HH:MM"
     """
     return dt.now().strftime("%H:%M")
+
+
+def getCurrentDate() -> str:
+    """
+    Datetime wrapper that gets the current date and
+    returns it as a formatted string.
+
+    # Returns:
+    "DD MONTH YEAR"
+    """
+    return dt.now().strftime("%d %B %Y")

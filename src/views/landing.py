@@ -22,31 +22,33 @@ def serve_layout() -> list:
     Defines and returns the layout components for the landing page.
     """
 
-    container = dbc.Container(
-        id="content-container",
-        children=[
-            dbc.Row(
-                id="info-bar",
-                children=getInfoBarContent(),
-                style={"height": "50px"},
-                className="d-flex justify-content-center",
-            ),
-            html.Br(),
-            dbc.Row(
-                id="content-row",
-                children=[
-                    dbc.Col(
-                        id="content-pane",
-                        children=[getLeftPaneContent()],
-                        width=9,
-                    ),
-                    dbc.Col(id="image-pane", children=[], width=3),
-                ],
-            ),
-        ],
-    )
+    container = [
+        dbc.Row(
+            id="info-bar",
+            children=getInfoBarContent(),
+            style={"height": "50px"},
+            className="d-flex justify-content-center align-items-center",
+        ),
+        html.Br(),
+        dbc.Row(
+            id="content-row",
+            children=[
+                dbc.Col(
+                    id="content-pane",
+                    children=[getLeftPaneContent()],
+                    width=9,
+                ),
+                dbc.Col(
+                    id="image-pane",
+                    children=[],
+                    width=3,
+                    style={"width": "22%", "margin-left": "3%"},
+                ),
+            ],
+        ),
+    ]
 
-    return [container]
+    return container
 
 
 def getInfoBarContent() -> list:

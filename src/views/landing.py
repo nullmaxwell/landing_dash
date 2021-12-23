@@ -65,24 +65,40 @@ def getInfoBarContent() -> list:
     """
 
     dow = dbc.Col(
-        html.P(components.getCurrentDate(), id="date", style={"text-align": "center"}),
+        html.P(
+            components.getCurrentDate(),
+            id="info-content-date",
+            style={"text-align": "center", "padding-top": "10px"},
+        ),
         width=3,
-        className="d-flex justify-content-center",
+        className="d-flex justify-content-center my-auto",
     )
     sunrise = dbc.Col(
-        html.P("00:00", id="sunrise-time", style={"text-align": "center"}),
+        html.P(
+            "00:00",
+            id="info-content-sunrise-time",
+            style={"text-align": "center", "padding-top": "10px"},
+        ),
         width=3,
-        className="d-flex justify-content-center",
+        className="d-flex justify-content-center my-auto",
     )
     sunset = dbc.Col(
-        html.P("00:00", id="sunset-time", style={"text-align": "center"}),
+        html.P(
+            "00:00",
+            id="info-content-sunset-time",
+            style={"text-align": "center", "padding-top": "10px"},
+        ),
         width=3,
-        className="d-flex justify-content-center",
+        className="d-flex justify-content-center my-auto",
     )
     moon_phase = dbc.Col(
-        html.P("Full moon", id="moon-phase", style={"text-align": "center"}),
+        html.P(
+            "Full moon",
+            id="info-content-moon-phase",
+            style={"text-align": "center", "padding-top": "10px"},
+        ),
         width=3,
-        className="d-flex justify-content-center",
+        className="d-flex justify-content-center my-auto",
     )
 
     return [dow, sunrise, sunset, moon_phase]

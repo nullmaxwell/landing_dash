@@ -117,7 +117,7 @@ coverage-html:
 #################################################################################
 
 ## Spins up local development server of Diadash
-dash:
+dash-dev:
 	make clean
 	$(PYTHON_INTERPRETER) src/index.py
 

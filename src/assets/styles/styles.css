@@ -1,5 +1,12 @@
+@import url("http://fonts.googleapis.com/css?family=Noto+Sans");
+
 body {
     overflow: hidden;
+    font-family: 'Noto Sans'
+}
+
+p {
+    font-family: 'Noto Sans';
 }
 
 #main-content{

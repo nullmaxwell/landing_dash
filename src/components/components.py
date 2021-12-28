@@ -1,65 +1,68 @@
 # Dash imports
 from dash import html
+from dash import dcc
 import dash_bootstrap_components as dbc
 
 # Application imports
 from app import app
 
 # Method imports
+from json import load
 from math import radians, pi, cos, sin, acos, tan
 from datetime import datetime as dt
 
 # ---------------------------------------------------------------------------------------
 
 
-def createCategory(title: str, bookmarks: list) -> any:
+def createCategories() -> any:
+    """
+    Reads the bookmarks json and compiles all bookmarks into a column that is returned.
+    FLow:
+    1. Read json
+    2. loop through each key within the dict and create a category.
+    """
+
+    # Reading the JSON data.
+    bookmark_data = None
+    categories = list()
+
+    try:
+        f = open("src/bookmarks.json")
+        bookmark_data = load(f)
+        f.close
+    except FileNotFoundError:
+        return dcc.Markdown("❌ JSON data not found.❌ ")
+    except:
+        return dcc.Markdown("❌ Error reading JSON.❌ ")
+
+    for key in bookmark_data.keys():
+        categories.append(createCategory(key, bookmark_data[key]))
+
+    return categories
+
+
+def createCategory(title: str, bookmarks: dict) -> any:
     """
     Creates a named category with the links and images provided.
 
-    bookmarks parameter is a list of tuples, it must be received in the following format:
-    ```
-    bookmarks = [
-        ("images/image_path1", "title1", "url1"),
-        ("images/image_path2", "title2", "url2"),
-    ]
+    Each category consists of a title header and the bookmarks themselves.
+    The `group_items` variable is built first and represents the list of bookmarks
+    that are added within the category.
     ```
     """
-    return dbc.Col(
-        id=title,
-        children=[
-            html.P(
-                title,
-                id=title + "-title",
-                className="d-flex justify-content-center",
-            ),
-            dbc.ListGroup(
-                id=title + "-bookmarks",
-                children=createBookmarks(bookmarks),
-                className="d-flex justify-content-center",
-            ),
-        ],
-        style={"width": "20%"},
-    )
-
-
-def createBookmarks(bookmarks: list) -> any:
-    """
-    Generates a ListGroup of links with their respective images.
-
-    This assumes that the bookmarks parameter is a list of tuples.
-    """
-
     group_items = list()
 
-    # Loops through each tuple and constructs a listgroup item for it
-    for bookmark in bookmarks:
+    # Building the list of bookmarks within the category
+    for key in bookmarks.keys():
+
+        current_bookmark = bookmarks[key]
 
         # Breakdown for readability
-        image_path = bookmark[0]
-        name = bookmark[1]
-        url = bookmark[2]
+        name = key
+        url = current_bookmark["link"]
+        image_path = current_bookmark["image_path"]
 
-        # Appending a list group item to
+        # Appending a dbc list group item to our group_items list
         group_items.append(
             dbc.ListGroupItem(
                 children=[
@@ -79,7 +82,7 @@ def createBookmarks(bookmarks: list) -> any:
                                 id=name + "title",
                                 className="d-flex justify-content-center",
                                 width=8,
-                                style={"padding-top": "9%"},
+                                style={"padding-top": "6%"},
                             ),
                         ],
                         className="gx-1",
@@ -89,9 +92,24 @@ def createBookmarks(bookmarks: list) -> any:
                 className="border-0 d-flex justify-content-center align-middle",
             )
         )
-        pass
 
-    return group_items
+    # Then return a column representing the category with a title and list group of the bookmarks
+    return dbc.Col(
+        id=title,
+        children=[
+            html.P(
+                title,
+                id=title + "-title",
+                className="d-flex justify-content-center",
+            ),
+            dbc.ListGroup(
+                id=title + "-bookmarks",
+                children=group_items,
+                className="d-flex justify-content-center",
+            ),
+        ],
+        style={"width": "20%"},
+    )
 
 
 def getCurrentTime() -> str:

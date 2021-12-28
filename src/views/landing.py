@@ -131,95 +131,11 @@ def getLeftPaneContent() -> any:
                         children=components.getDynamicGreeting(),
                         style={"text-align": "center"},
                     ),
-                    html.Br(style={"margin": "20px"}),
+                    html.Br(style={"margin": "30px"}),
                 ],
                 className="d-flex justify-content-center",
             ),
-            components.createCategory(
-                title="General",
-                bookmarks=[
-                    (
-                        "icons/io.polymail.ios-large.png",
-                        "Test 1",
-                        "https://google.com",
-                    ),
-                    (
-                        "icons/io.polymail.ios-large.png",
-                        "Test 2",
-                        "https://google.com",
-                    ),
-                ],
-            ),
-            components.createCategory(
-                title="Network",
-                bookmarks=[
-                    (
-                        "icons/io.polymail.ios-large.png",
-                        "Test 1",
-                        "https://google.com",
-                    ),
-                    (
-                        "icons/io.polymail.ios-large.png",
-                        "Test 2",
-                        "https://google.com",
-                    ),
-                ],
-            ),
-            components.createCategory(
-                title="Development",
-                bookmarks=[
-                    (
-                        "icons/io.polymail.ios-large.png",
-                        "Test 1",
-                        "https://google.com",
-                    ),
-                    (
-                        "icons/io.polymail.ios-large.png",
-                        "Test 2",
-                        "https://google.com",
-                    ),
-                ],
-            ),
-            components.createCategory(
-                title="Entertainment",
-                bookmarks=[
-                    (
-                        "icons/io.polymail.ios-large.png",
-                        "Test 1",
-                        "https://google.com",
-                    ),
-                    (
-                        "icons/io.polymail.ios-large.png",
-                        "Test 2",
-                        "https://google.com",
-                    ),
-                    (
-                        "icons/io.polymail.ios-large.png",
-                        "Test 2",
-                        "https://google.com",
-                    ),
-                ],
-            ),
-            components.createCategory(
-                title="Personal",
-                bookmarks=[
-                    (
-                        "icons/io.polymail.ios-large.png",
-                        "Test 1",
-                        "https://google.com",
-                    ),
-                    (
-                        "icons/io.polymail.ios-large.png",
-                        "Test 2",
-                        "https://google.com",
-                    ),
-                    (
-                        "icons/io.polymail.ios-large.png",
-                        "Test 2",
-                        "https://google.com",
-                    ),
-                ],
-            ),
+            dbc.Row(id="categories-row", children=components.createCategories()),
         ],
     )
 

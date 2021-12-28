@@ -1,51 +1,51 @@
 {
     "General": {
         "Example 1": {
-            "image_path": "icons/io.polymail.ios-large.png",
+            "image_path": "icons/SAMPLE_ICON.png",
             "link": "www.google.com"
         },
         "Example 2": {
-            "image_path": "icons/io.polymail.ios-large.png",
+            "image_path": "icons/SAMPLE_ICON.png",
             "link": "www.google.com"
         }
     },
     "Network":{
         "Example 1": {
-            "image_path": "icons/io.polymail.ios-large.png",
+            "image_path": "icons/SAMPLE_ICON.png",
             "link": "www.google.com"
         },
         "Example 2": {
-            "image_path": "icons/io.polymail.ios-large.png",
+            "image_path": "icons/SAMPLE_ICON.png",
             "link": "www.google.com"
         }
     },
     "Development":{
         "Example 1": {
-            "image_path": "icons/io.polymail.ios-large.png",
+            "image_path": "icons/SAMPLE_ICON.png",
             "link": "www.google.com"
         },
         "Example 2": {
-            "image_path": "icons/io.polymail.ios-large.png",
+            "image_path": "icons/SAMPLE_ICON.png",
             "link": "www.google.com"
         }
     },
     "Reading":{
         "Example 1": {
-            "image_path": "icons/io.polymail.ios-large.png",
+            "image_path": "icons/SAMPLE_ICON.png",
             "link": "www.google.com"
         },
         "Example 2": {
-            "image_path": "icons/io.polymail.ios-large.png",
+            "image_path": "icons/SAMPLE_ICON.png",
             "link": "www.google.com"
         }
     },
     "Entertainment":{
         "Example 1": {
-            "image_path": "icons/io.polymail.ios-large.png",
+            "image_path": "icons/SAMPLE_ICON.png",
             "link": "www.google.com"
         },
         "Example 2": {
-            "image_path": "icons/io.polymail.ios-large.png",
+            "image_path": "icons/SAMPLE_ICON.png",
             "link": "www.google.com"
         }
     }

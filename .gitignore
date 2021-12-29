@@ -90,3 +90,7 @@ target/
 
 # Notebook files
 *.ipynb
+
+# Asset files
+/src/assets/*
+!/src/assets/SAMPLE_ICON.png

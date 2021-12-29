@@ -92,5 +92,5 @@ target/
 *.ipynb
 
 # Asset files
-/src/assets/*
-!/src/assets/SAMPLE_ICON.png
+/src/assets/icons/*
+!/src/assets/icons/SAMPLE_ICON.png
